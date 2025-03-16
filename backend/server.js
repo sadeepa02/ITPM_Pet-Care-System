@@ -4,11 +4,11 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const dotenv = require("dotenv");
 
+
 const doctorAddRoutes = require("./routes/DoctorAddRoutes");
 
-
-
-
+//dasun routes
+const painControlBookRoutes = require("./routes/painControlBookRoutes");
 
 
 dotenv.config();
@@ -30,6 +30,8 @@ mongoose.connect(URL)
 // Routes
 
 app.use("/api/doctoradd", doctorAddRoutes);
+app.use("/api/paincontrolbook", painControlBookRoutes);
+
 
 
 // Basic route
@@ -39,5 +41,5 @@ app.get("/", (req, res) => {
 
 // Start server
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
