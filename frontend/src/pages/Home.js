@@ -123,7 +123,6 @@ function Home() {
           <a href="#contact" style={styles.navLink}>Contact</a>
         </div>
       </nav>
-
       {/* Hero Section */}
       <section style={styles.hero} id="home">
         <div style={styles.heroContent}>
