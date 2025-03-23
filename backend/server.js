@@ -5,7 +5,6 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 
-const doctorAddRoutes = require("./routes/DoctorAddRoutes");
 const adminRoutes = require("./routes/AdminRoutes");
 
 
