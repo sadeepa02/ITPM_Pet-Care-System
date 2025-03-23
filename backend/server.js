@@ -6,9 +6,14 @@ const dotenv = require("dotenv");
 
 
 const doctorAddRoutes = require("./routes/DoctorAddRoutes");
+const adminRoutes = require("./routes/AdminRoutes");
+
+
+const doctorAddRoutes = require("./routes/DoctorAddRoutes");
 
 //dasun routes
 const painControlBookRoutes = require("./routes/painControlBookRoutes");
+
 
 
 dotenv.config();
@@ -30,6 +35,9 @@ mongoose.connect(URL)
 // Routes
 
 app.use("/api/doctoradd", doctorAddRoutes);
+
+app.use("/api/admin", adminRoutes);
+
 app.use("/api/paincontrolbook", painControlBookRoutes);
 
 

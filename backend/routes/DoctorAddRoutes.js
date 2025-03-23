@@ -3,6 +3,7 @@ const router = express.Router();
 const DoctorAdd = require("../models/DoctorAddModel");
 
 // Submit Doctor form
+//POST http:localhost:8070/api/doctoradd/submit
 router.post("/submit", async (req, res) => {
   try {
     const newDoctor = new DoctorAdd(req.body);
@@ -21,6 +22,7 @@ router.post("/submit", async (req, res) => {
 });
 
 // Get all Doctor submissions
+//GET http://localhost:8070/api/doctoradd/
 router.get("/", async (req, res) => {
   try {
     const doctors = await DoctorAdd.find().sort({ createdAt: -1 });
@@ -38,6 +40,7 @@ router.get("/", async (req, res) => {
 });
 
 // Update Doctor form
+//PATCH http://localhost:8070/api/doctoradd/{doctorId}
 router.patch("/:id", async (req, res) => {
   try {
     const updatedDoctor = await DoctorAdd.findByIdAndUpdate(
@@ -62,6 +65,8 @@ router.patch("/:id", async (req, res) => {
 });
 
 // Delete Doctor form
+//DELETE http://localhost:8070/api/doctoradd/{doctorId}
+
 router.delete("/:id", async (req, res) => {
   try {
     const deletedDoctor = await DoctorAdd.findByIdAndDelete(req.params.id);
