@@ -5,10 +5,7 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 const doctorAddRoutes = require("./routes/DoctorAddRoutes");
-
-
-
-
+const adminRoutes = require("./routes/AdminRoutes");
 
 
 dotenv.config();
@@ -30,6 +27,7 @@ mongoose.connect(URL)
 // Routes
 
 app.use("/api/doctoradd", doctorAddRoutes);
+app.use("/api/admin", adminRoutes);
 
 
 // Basic route
