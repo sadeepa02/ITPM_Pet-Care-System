@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import HomePage from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
-import './App.css';
-import Home from './pages/Home'; // Import the Home component
 import Services from './pages/services';
 import Footer from './components/Footer';
 import ServiceBooking1 from './pages/ServiceBooking1';
@@ -20,9 +18,6 @@ const ProtectedRoute = ({ children }) => {
   
   return children;
 };
-
-
-
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,13 +50,10 @@ function App() {
   return (
     <Router>
       <Routes>
-
         <Route path="/" element={<HomePage />} />
-
-        <Route path="/" element={<Home />} /> {/* Add the Home route */}
         <Route path="/services" element={<Services />} />
-        <Route path="/servicebook" element={<ServiceBooking1/>}/>
-        <Route path="/bookingdetails" element={<BookingDetails1/>}/>
+        <Route path="/servicebook" element={<ServiceBooking1 />} />
+        <Route path="/bookingdetails" element={<BookingDetails1 />} />
         <Route 
           path="/dashboard" 
           element={
@@ -70,13 +62,9 @@ function App() {
             </ProtectedRoute>
           } 
         />
-        {/* <Route path="/about" element={<AboutUs />} />*/}
-        {/* <Route path="/services" element={<ServicesPage />} /> */}
       </Routes>
+      <Footer /> {/* Move Footer outside of Routes */}
     </Router>
-     <Footer />
-    </div>
-
   );
 }
 
