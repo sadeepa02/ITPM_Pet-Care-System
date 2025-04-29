@@ -3,10 +3,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import HomePage from './pages/HomePage';
 import Dashboard from './pages/Dashboard';
 import Services from './pages/services';
-import Footer from './components/Footer';
 import ServiceBooking1 from './pages/ServiceBooking1';
 import BookingDetails1 from './pages/BokkingDetails1';
-
+import PrescriptionList from './components/Dashboard/PrescriptionList'; 
 // Protected Route component
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -51,9 +50,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<HomePage />} />
+        <Route path="/home" element={<HomePage />} />
         <Route path="/services" element={<Services />} />
         <Route path="/servicebook" element={<ServiceBooking1 />} />
         <Route path="/bookingdetails" element={<BookingDetails1 />} />
+        <Route path="/prescriptions" element={<PrescriptionList/>} />
         <Route 
           path="/dashboard" 
           element={
@@ -63,7 +64,7 @@ function App() {
           } 
         />
       </Routes>
-      <Footer /> {/* Move Footer outside of Routes */}
+      
     </Router>
   );
 }

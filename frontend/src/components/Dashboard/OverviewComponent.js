@@ -1,4 +1,5 @@
 import React from 'react';
+import CalendarSummary from './CalendarSummary';
 
 const Overview = () => {
   const stats = [
@@ -35,6 +36,8 @@ const Overview = () => {
   return (
     <div style={{ padding: '20px', marginLeft: '250px' }}>
       <h2 style={{ fontSize: '24px', fontWeight: 600, marginBottom: '24px', color: '#2d3748' }}>Dashboard Overview</h2>
+
+      {/* Stats Section */}
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(250px, 1fr))', gap: '24px' }}>
         {stats.map((stat, index) => (
           <div key={index} style={{ backgroundColor: '#ffffff', borderRadius: '8px', padding: '24px', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }}>
@@ -49,6 +52,11 @@ const Overview = () => {
             </div>
           </div>
         ))}
+      </div>
+
+      {/* Calendar Summary Section */}
+      <div style={{ marginTop: '40px', backgroundColor: '#fff', padding: '20px', borderRadius: '8px', boxShadow: '0 1px 3px rgba(0, 0, 0, 0.1)' }}>
+        <CalendarSummary />
       </div>
     </div>
   );

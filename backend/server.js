@@ -5,15 +5,18 @@ const cors = require("cors");
 const dotenv = require("dotenv");
 
 
+
 const adminRoutes = require("./routes/AdminRoutes");
-
-
+//doctor routes
 const doctorAddRoutes = require("./routes/DoctorAddRoutes");
 
 //dasun routes
 const painControlBookRoutes = require("./routes/painControlBookRoutes");
+// pers routes
+const prescriptionRoutes = require("./routes/PrescriptionRoutes");
 
-
+//fetch appoinment
+const appointmentsRoutes = require('./routes/appointments');
 
 dotenv.config();
 
@@ -23,7 +26,7 @@ const PORT = process.env.PORT || 8070;
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
-
+app.use(express.json());
 // MongoDB connection
 const URL = process.env.MONGODB_URL;
 
@@ -40,6 +43,15 @@ app.use("/api/admin", adminRoutes);
 app.use("/api/paincontrolbook", painControlBookRoutes);
 
 
+app.use("/api/prescriptions", prescriptionRoutes);
+
+
+app.use('/api/appointments', appointmentsRoutes);
+
+app.use('/api/appointments', require('./routes/appointments'));
+
+
+app.use("/", prescriptionRoutes);
 
 // Basic route
 app.get("/", (req, res) => {
