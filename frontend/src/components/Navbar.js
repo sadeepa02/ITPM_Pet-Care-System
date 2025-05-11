@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminLoginForm from './AdminLoginForm';
 
 const Navbar = () => {
@@ -18,7 +17,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div style={{ 
+      <nav style={{ 
         display: 'flex', 
         justifyContent: 'space-between', 
         alignItems: 'center', 
@@ -40,93 +39,112 @@ const Navbar = () => {
           <h1 style={{ color: '#333', margin: 0, fontSize: '24px' }}>PETCARE</h1>
         </div>
         <div style={{ display: 'flex', gap: '20px' }}>
-          <a 
-            href="#" 
-            onClick={(e) => { 
-              e.preventDefault(); 
-              window.scrollTo({ top: 0, behavior: 'smooth' }); 
+          <button
+            type="button"
+            onClick={() => {
+              window.scrollTo({ top: 0, behavior: 'smooth' });
               setActiveSection('home');
-            }} 
+            }}
             style={{ 
-              color: activeSection === 'home' ? '#4ECDC4' : '#555', 
-              textDecoration: 'none', 
-              fontWeight: activeSection === 'home' ? 'bold' : 'normal' 
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              color: activeSection === 'home' ? '#4ECDC4' : '#555',
+              textDecoration: 'none',
+              fontWeight: activeSection === 'home' ? 'bold' : 'normal',
+              cursor: 'pointer'
             }}
           >
             HOME
-          </a>
-          <a 
-            href="#about" 
-            onClick={(e) => { 
-              e.preventDefault(); 
-              scrollToSection('about'); 
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              scrollToSection('about');
               setActiveSection('about');
-            }} 
+            }}
             style={{ 
-              color: activeSection === 'about' ? '#4ECDC4' : '#555', 
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              color: activeSection === 'about' ? '#4ECDC4' : '#555',
               textDecoration: 'none',
-              fontWeight: activeSection === 'about' ? 'bold' : 'normal'
+              fontWeight: activeSection === 'about' ? 'bold' : 'normal',
+              cursor: 'pointer'
             }}
           >
             ABOUT
-          </a>
-          <a 
-            href="#services" 
-            onClick={(e) => { 
-              e.preventDefault(); 
-              scrollToSection('services'); 
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              scrollToSection('services');
               setActiveSection('services');
-            }} 
+            }}
             style={{ 
-              color: activeSection === 'services' ? '#4ECDC4' : '#555', 
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              color: activeSection === 'services' ? '#4ECDC4' : '#555',
               textDecoration: 'none',
-              fontWeight: activeSection === 'services' ? 'bold' : 'normal'
+              fontWeight: activeSection === 'services' ? 'bold' : 'normal',
+              cursor: 'pointer'
             }}
           >
             SERVICES
-          </a>
-          <a 
-            href="#doctors" 
-            onClick={(e) => { 
-              e.preventDefault(); 
-              scrollToSection('doctors'); 
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              scrollToSection('doctors');
               setActiveSection('doctors');
-            }} 
+            }}
             style={{ 
-              color: activeSection === 'doctors' ? '#4ECDC4' : '#555', 
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              color: activeSection === 'doctors' ? '#4ECDC4' : '#555',
               textDecoration: 'none',
-              fontWeight: activeSection === 'doctors' ? 'bold' : 'normal'
+              fontWeight: activeSection === 'doctors' ? 'bold' : 'normal',
+              cursor: 'pointer'
             }}
           >
             DOCTORS
-          </a>
-          <a 
-            href="#contact" 
-            onClick={(e) => { 
-              e.preventDefault(); 
-              scrollToSection('contact'); 
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              scrollToSection('contact');
               setActiveSection('contact');
-            }} 
+            }}
             style={{ 
-              color: activeSection === 'contact' ? '#4ECDC4' : '#555', 
+              background: 'none',
+              border: 'none',
+              padding: 0,
+              color: activeSection === 'contact' ? '#4ECDC4' : '#555',
               textDecoration: 'none',
-              fontWeight: activeSection === 'contact' ? 'bold' : 'normal'
+              fontWeight: activeSection === 'contact' ? 'bold' : 'normal',
+              cursor: 'pointer'
             }}
           >
             CONTACT
-          </a>
-          <button onClick={() => setShowModal(true)} style={{ 
-            backgroundColor: '#4ECDC4', 
-            color: 'white', 
-            border: 'none', 
-            padding: '10px 15px', 
-            borderRadius: '5px',
-            cursor: 'pointer'
-          }}>
+          </button>
+          <button
+            type="button"
+            onClick={() => setShowModal(true)}
+            style={{ 
+              backgroundColor: '#4ECDC4', 
+              color: 'white', 
+              border: 'none', 
+              padding: '10px 15px', 
+              borderRadius: '5px',
+              cursor: 'pointer'
+            }}
+          >
             LOGIN
           </button>
         </div>
-      </div>
+      </nav>
 
       {showModal && (
         <div style={{ 
@@ -172,16 +190,14 @@ const Navbar = () => {
                     <input type="text" placeholder="Full Name" style={{ width: '100%', padding: '8px', margin: '5px 0', borderRadius: '5px', border: '1px solid #ccc' }} />
                     <input type="email" placeholder="Email" style={{ width: '100%', padding: '8px', margin: '5px 0', borderRadius: '5px', border: '1px solid #ccc' }} />
                     <input type="password" placeholder="Password" style={{ width: '100%', padding: '8px', margin: '5px 0', borderRadius: '5px', border: '1px solid #ccc' }} />
-                    <input type="text" placeholder="Adress" style={{ width: '100%', padding: '8px', margin: '5px 0', borderRadius: '5px', border: '1px solid #ccc' }} />
+                    <input type="text" placeholder="Address" style={{ width: '100%', padding: '8px', margin: '5px 0', borderRadius: '5px', border: '1px solid #ccc' }} />
                     <button style={{ margin: '10px', padding: '10px', width: '100%', backgroundColor: '#4ECDC4', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Submit</button>
                     <button onClick={() => setShowModal(false)} style={{ margin: '10px', padding: '10px', width: '100%', backgroundColor: '#ccc', color: 'white', border: 'none', borderRadius: '5px', cursor: 'pointer' }}>Close</button>
                   </form>
                 </>
               )
             ) : (
-              <>
-                {showAdminForm && <AdminLoginForm onClose={() => setShowAdminForm(false)} />}
-              </>
+              showAdminForm && <AdminLoginForm onClose={() => setShowAdminForm(false)} />
             )}
           </div>
         </div>
