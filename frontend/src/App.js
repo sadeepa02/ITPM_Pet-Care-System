@@ -6,6 +6,7 @@ import Services from './pages/services';
 import ServiceBooking1 from './pages/ServiceBooking1';
 import BookingDetails1 from './pages/BokkingDetails1';
 import PrescriptionList from './components/Dashboard/PrescriptionList'; 
+import AIpredective from './components/Dashboard/AIpredective'; 
 // Protected Route component
 const ProtectedRoute = ({ children }) => {
   const token = localStorage.getItem("token");
@@ -55,6 +56,7 @@ function App() {
         <Route path="/servicebook" element={<ServiceBooking1 />} />
         <Route path="/bookingdetails" element={<BookingDetails1 />} />
         <Route path="/prescriptions" element={<PrescriptionList/>} />
+        <Route path="/aipredective" element={<AIpredective/>} />
         <Route 
           path="/dashboard" 
           element={
