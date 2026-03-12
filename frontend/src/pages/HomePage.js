@@ -8,8 +8,6 @@ import Footer from '../components/Footer';
 import ServiceCards from '../components/ServiceCards';
 import TopBar from '../components/TopBar';
 
-
-
 const HomePage = () => {
   return (
     <div style={{ 
@@ -23,6 +21,21 @@ const HomePage = () => {
       
       {/* Navigation Bar */}
       <Navbar />
+      
+      {/* Search Bar */}
+      <div style={{ padding: '10px', textAlign: 'center' }}>
+        <input 
+          type="text" 
+          placeholder="Search..." 
+          style={{
+            width: '80%',
+            padding: '10px',
+            fontSize: '16px',
+            border: '1px solid #ccc',
+            borderRadius: '4px'
+          }}
+        />
+      </div>
       
       {/* Hero Section with Slider */}
       <Hero />

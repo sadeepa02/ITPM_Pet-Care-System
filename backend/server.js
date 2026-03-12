@@ -490,7 +490,8 @@ app.use("/api/doctoradd", doctorAddRoutes);
 app.use("/api/paincontrolbook", painControlBookRoutes);
 app.use("/api/prescriptions", prescriptionRoutes);
 app.use("/api/appointments", appointmentsRoutes);
-
+app.use("/api/appointments", require("./routes/appointments"));
+app.use("/", prescriptionRoutes);
 // Home route
 app.get("/", (req, res) => {
   res.send("🐾 Pet Management API is running!");
