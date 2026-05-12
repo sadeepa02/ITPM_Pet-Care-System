@@ -60,9 +60,15 @@ router.post("/login", async (req, res) => {
     const adminData = admin.toObject();
     delete adminData.password;
     
+    // JWT_SECRET must be set in environment variables
+    if (!process.env.JWT_SECRET) {
+      console.error('JWT_SECRET is not configured in environment variables');
+      return res.status(500).json({ message: 'Server configuration error' });
+    }
+    
     const token = jwt.sign(
       adminData, 
-      process.env.JWT_SECRET || "your-secret-key", // Hardcoded fallback
+      process.env.JWT_SECRET,
       { expiresIn: "1h" }
     );
     

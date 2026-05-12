@@ -1,45 +1,6 @@
-// *** File: server.js ***
-// Place this at the root of your backend (e.g. backend/server.js)
-require('dotenv').config();
+// Pet Care Prediction API Route
+// This module handles AI-powered predictions for pet health conditions
 
-const express = require('express');
-const bodyParser = require('body-parser');
-const { MongoClient } = require('mongodb');
-
-// Import the predict router from its own file
-const predictRouter = require('./routes/predict');
-
-const app = express();
-const port = process.env.PORT || 8070;
-
-// Middleware
-app.use(bodyParser.json());
-
-// Mount predict router before starting the server
-app.use('/predict', predictRouter);
-
-// Connect to MongoDB and then start the server
-const mongoUri = process.env.MONGODB_URI || 'mongodb://localhost:27017';
-const dbName   = process.env.DB_NAME       || 'petcare';
-
-MongoClient.connect(mongoUri, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(client => {
-    const db = client.db(dbName);
-    app.locals.db = db;
-    console.log(`✅ Connected to MongoDB: ${dbName}`);
-
-    app.listen(port, () => {
-      console.log(`🚀 Server listening on port ${port}`);
-    });
-  })
-  .catch(err => {
-    console.error('❌ MongoDB connection error:', err);
-    process.exit(1);
-  });
-
-
-// *** File: routes/predict.js ***
-// Place this in backend/routes/predict.js
 const express = require('express');
 const { OpenAI } = require('openai');
 
